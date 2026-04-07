@@ -1,0 +1,171 @@
+import { City, DLI, MethodologyStep, FieldRecord, TeamMember } from './types';
+
+export const CITIES: City[] = [
+  { id: '1', name: 'Ahmedpur East', isPPP: false, dliProgress: 75, riskLevel: 'Low', status: 'Verified', population: '179,262', region: 'South' },
+  { id: '2', name: 'Arifwala', isPPP: false, dliProgress: 60, riskLevel: 'Medium', status: 'Pending', population: '111,403', region: 'Central' },
+  { id: '3', name: 'Chakwal', isPPP: true, dliProgress: 85, riskLevel: 'Low', status: 'Verified', population: '138,146', region: 'North' },
+  { id: '4', name: 'Chiniot', isPPP: false, dliProgress: 45, riskLevel: 'High', status: 'Risk', population: '201,781', region: 'Central' },
+  { id: '5', name: 'Chishtian', isPPP: false, dliProgress: 70, riskLevel: 'Low', status: 'Verified', population: '149,939', region: 'South' },
+  { id: '6', name: 'Haroonabad', isPPP: false, dliProgress: 55, riskLevel: 'Medium', status: 'Pending', population: '107,858', region: 'South' },
+  { id: '7', name: 'Jampur', isPPP: false, dliProgress: 40, riskLevel: 'High', status: 'Risk', population: '87,858', region: 'South' },
+  { id: '8', name: 'Jatoi', isPPP: false, dliProgress: 65, riskLevel: 'Medium', status: 'Pending', population: '71,651', region: 'South' },
+  { id: '9', name: 'Kasur', isPPP: true, dliProgress: 90, riskLevel: 'Low', status: 'Verified', population: '358,409', region: 'Central' },
+  { id: '10', name: 'Khanpur', isPPP: false, dliProgress: 80, riskLevel: 'Low', status: 'Verified', population: '184,793', region: 'South' },
+  { id: '11', name: 'Mandi Bahauddin', isPPP: false, dliProgress: 50, riskLevel: 'Medium', status: 'Pending', population: '198,609', region: 'North' },
+  { id: '12', name: 'Pakpattan', isPPP: false, dliProgress: 75, riskLevel: 'Low', status: 'Verified', population: '176,693', region: 'Central' },
+  { id: '13', name: 'Rajanpur', isPPP: false, dliProgress: 35, riskLevel: 'High', status: 'Risk', population: '99,089', region: 'South' },
+  { id: '14', name: 'Sadiqabad', isPPP: false, dliProgress: 85, riskLevel: 'Low', status: 'Verified', population: '239,677', region: 'South' },
+  { id: '15', name: 'Samundri', isPPP: false, dliProgress: 60, riskLevel: 'Medium', status: 'Pending', population: '156,991', region: 'Central' },
+  { id: '16', name: 'Shujabad', isPPP: false, dliProgress: 55, riskLevel: 'Medium', status: 'Pending', population: '80,035', region: 'South' },
+];
+
+export const DLIS: DLI[] = [
+  {
+    id: 1,
+    title: 'Water & Sewer Connections',
+    description: 'Verification of new and functional water and sewerage connections in target areas.',
+    verificationMethod: 'Physical verification of connection logs and field spot checks.',
+    evidenceSources: ['ULG Connection Registers', 'PMDFC MIS', 'Field Inspection Reports'],
+    fieldVerification: true,
+    status: 'Verified',
+    riskLevel: 'Low',
+    icon: 'Droplets',
+  },
+  {
+    id: 2,
+    title: 'Solid Waste Management',
+    description: 'Assessment of waste collection efficiency and disposal site management.',
+    verificationMethod: 'Review of collection routes, weighbridge data, and site visits.',
+    evidenceSources: ['Waste Collection Logs', 'Disposal Site Records', 'GPS Tracking Data'],
+    fieldVerification: true,
+    status: 'Pending',
+    riskLevel: 'Medium',
+    icon: 'Trash2',
+  },
+  {
+    id: 3,
+    title: 'MAC Compliance',
+    description: 'Minimum Access Conditions compliance for funding eligibility.',
+    verificationMethod: 'Desk review of institutional and financial prerequisites.',
+    evidenceSources: ['Audit Reports', 'Staffing Records', 'Budget Documents'],
+    fieldVerification: false,
+    status: 'Verified',
+    riskLevel: 'Low',
+    icon: 'ShieldCheck',
+  },
+  {
+    id: 4,
+    title: 'Performance Indicators',
+    description: 'Evaluation of municipal service delivery performance against set targets.',
+    verificationMethod: 'Data triangulation between ULG records and PMDFC MIS.',
+    evidenceSources: ['KPI Reports', 'Service Delivery Logs', 'Citizen Feedback'],
+    fieldVerification: true,
+    status: 'Pending',
+    riskLevel: 'Medium',
+    icon: 'BarChart3',
+  },
+  {
+    id: 5,
+    title: 'Revenue Increase',
+    description: 'Verification of own-source revenue growth compared to base year.',
+    verificationMethod: 'Financial audit and reconciliation of tax/fee collection.',
+    evidenceSources: ['Financial Statements', 'Tax Registers', 'Bank Reconciliation'],
+    fieldVerification: false,
+    status: 'Verified',
+    riskLevel: 'Low',
+    icon: 'TrendingUp',
+  },
+  {
+    id: 6,
+    title: 'PPP Transactions',
+    description: 'Monitoring of Public-Private Partnership contracts and implementation.',
+    verificationMethod: 'Contract review and milestone verification for PPP projects.',
+    evidenceSources: ['PPP Contracts', 'Feasibility Studies', 'Concessionaire Reports'],
+    fieldVerification: true,
+    status: 'Verified',
+    riskLevel: 'Low',
+    icon: 'Handshake',
+  },
+];
+
+export const METHODOLOGY_STEPS: MethodologyStep[] = [
+  {
+    id: 1,
+    title: 'Mobilization',
+    description: 'Project kickoff and team deployment.',
+    details: ['Team orientation', 'Stakeholder mapping', 'Work plan finalization'],
+  },
+  {
+    id: 2,
+    title: 'Desk Review',
+    description: 'Initial analysis of provided documents.',
+    details: ['ULG records review', 'PMDFC data analysis', 'Gap identification'],
+  },
+  {
+    id: 3,
+    title: 'Data Validation',
+    description: 'Reconciliation of multi-source data.',
+    details: ['Triangulation', 'Consistency checks', 'Query generation'],
+  },
+  {
+    id: 4,
+    title: 'Field Check',
+    description: 'On-site verification of physical outputs.',
+    details: ['Spot checks', 'Stakeholder interviews', 'GPS tagging'],
+  },
+  {
+    id: 5,
+    title: 'Scoring',
+    description: 'Final performance assessment.',
+    details: ['DLI achievement calculation', 'MAC compliance check', 'PM scoring'],
+  },
+  {
+    id: 6,
+    title: 'QA & Review',
+    description: 'Internal quality assurance process.',
+    details: ['Technical review', 'Back-checks', 'Sign-off'],
+  },
+  {
+    id: 7,
+    title: 'Reporting',
+    description: 'Final report submission to client.',
+    details: ['Draft report', 'Client feedback', 'Final submission'],
+  },
+];
+
+export const FIELD_RECORDS: FieldRecord[] = [
+  {
+    id: 'FR-001',
+    cityName: 'Chakwal',
+    inspector: 'Engr. Salman Ahmed',
+    timestamp: '2026-03-15 10:30 AM',
+    gps: '32.9328° N, 72.8630° E',
+    status: 'Verified',
+    checklist: [
+      { item: 'Connection functional', verified: true },
+      { item: 'Meter installed', verified: true },
+      { item: 'Consumer record exists', verified: true },
+    ],
+  },
+  {
+    id: 'FR-002',
+    cityName: 'Kasur',
+    inspector: 'Engr. Maria Khan',
+    timestamp: '2026-03-16 02:15 PM',
+    gps: '31.1179° N, 74.4408° E',
+    status: 'Verified',
+    checklist: [
+      { item: 'Waste collection active', verified: true },
+      { item: 'Secondary collection point clean', verified: true },
+      { item: 'Vehicle GPS active', verified: true },
+    ],
+  },
+];
+
+export const TEAM_STRUCTURE: TeamMember[] = [
+  { role: 'Infrastructure Specialists', focus: 'DLI 1 & DLI 2', members: ['Engr. Salman Ahmed', 'Engr. Maria Khan', 'Engr. Usman Ali'] },
+  { role: 'Finance Specialists', focus: 'DLI 5 & Revenue', members: ['Zahid Hussain, FCA', 'Ayesha Malik, ACMA'] },
+  { role: 'Institutional Specialists', focus: 'MAC & PM Scoring', members: ['Dr. Farooq Azam', 'Saira Bano'] },
+  { role: 'E&S Specialists', focus: 'Compliance & GRM', members: ['Irfan Lodhi', 'Nadia Sheikh'] },
+  { role: 'Team Lead / QA', focus: 'Reporting & Strategy', members: ['M. Sarwar (Team Lead)', 'Technical Review Board'] },
+];
